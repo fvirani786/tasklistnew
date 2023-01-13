@@ -63,7 +63,7 @@ function enterTask(taskTitle, taskDate, taskStatus, taskId) {
                     <div class="card-body" id="${taskId}">
                       <h5 class="card-title">${taskTitle}</h5>
                       <p class="card-text">${taskDate}</p>
-                      <a href="#" class="btn btn-danger" id="deleteButton ${taskId}">Delete</a>
+                      <button class="btn btn-danger" id="deleteButton ${taskId}">Delete</button>
                     </div>
                   </div>`;
 
@@ -86,8 +86,8 @@ function renderTaskList() {
 }
 var taskList = document.getElementById("myTaskList");
 taskList.addEventListener('click', (event) => { // "event" here is the event parameter
-    console.log("test")
     const clickedEvent = event.target;
+    //console.log("delete")
     //console.log(clickedEvent.innerHTML);
     //console.log(clickedEvent);
     const parentNode = clickedEvent.parentNode;
@@ -123,14 +123,18 @@ taskList.addEventListener('click', (event) => { // "event" here is the event par
         //console.log(myArray[1])
         //console.log(typeof (myArray[1]))
         let checkBox = document.getElementById(myCheckbox)
-        let Delete = document.getElementById("deleteButton" + numericArray)
+        let deleteBtn = document.getElementById("deleteButton" + ' ' + numericArray)
+        console.log(numericArray)
 
-        //let Delete = document.getElementById("deleteButton" + (myCheckbox))
-        //let Delete = document.getElementById(numericArray)
         console.log(typeof Delete)
 
         checkBox.disabled = true
-        Delete.disabled = true
+        deleteBtn.remove()
+
+        /*
+            TO DISABLE BUTTON COMPLETELY FROM CHECKED TASK:
+            deleteBtn.disabled = true
+        */
 
         //alert('checkbox is selected');
         // taskListArray.splice(indexToDelete,0)
